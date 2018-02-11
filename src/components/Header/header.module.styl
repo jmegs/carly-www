@@ -1,0 +1,47 @@
+@import '../../utils/vars';
+
+.wrapper
+  margin-top: 88px
+  width: 100%
+  padding: 0 1.5rem
+  @media (min-width: 1024px)
+    // display: flex
+    // justify-content: space-between
+    display: grid
+    grid-template-columns: 50% 50%
+
+
+.content
+  margin-top: 2.5rem
+  padding: 0 0.5rem
+  z-index 1
+  
+  > h1, p
+    font-family: Sporting, sans-serif
+    font-size: type.two
+    color: colors.blue
+    letter-spacing: 0.08em
+    line-height: 1.25
+    text-transform: uppercase
+
+  > p
+    font-size: type.one
+    margin-top: 0.618rem
+
+  @media (min-width: 1024px)
+    grid-column: 1 / -1
+    grid-row: 1 / span 1
+    align-self: end
+    margin:0 0 4rem 2rem
+
+    > h1
+      font-size: type.four
+
+.imageWrap
+  box-shadow: 0 15px 12px 0 rgba(0,0,99,0.07), 
+    0 19px 38px 0 rgba(0,0,0,0.10)  
+  
+  @media (min-width: 1024px)
+    grid-column: 2/3
+    grid-row: 1 / span 1
+    margin-right: 4rem

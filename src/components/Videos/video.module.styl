@@ -1,0 +1,81 @@
+@import '../../utils/vars'
+
+.container
+  background: colors.blue
+  padding: 1.5rem
+  clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%)
+  //full width trick
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+.content
+  max-width: 1280px
+  margin: 0 auto
+  padding: 2rem
+
+.grid
+    @media (min-width: 960px)
+      margin: 0 4rem;
+      display: grid
+      grid-template-columns: 1fr 1fr
+      grid-gap: 64px
+
+.title
+  font-family: Sporting, sans-serif
+  font-size: type.two
+  color: white
+  letter-spacing: 0.08em
+  line-height: 1.25
+  text-transform: uppercase
+  // padding: 0 2rem 
+  margin-top: 2rem 
+  @media (min-width: 40em)
+    font-size: type.four
+
+.video
+  margin-top: 3rem
+
+.video__container
+  position: relative
+  padding-bottom 56.25%
+  padding-top 2rem
+  height: 0
+  overflow: hidden
+  
+
+.video__container iframe,
+.video__container object,
+.video__container embed 
+  position absolute
+  top 0
+  left 0
+  width 100%
+  height 100%
+
+.video__title
+  color: white
+  font-size: type.one
+  margin-top: 1rem
+  line-height: 1.5
+
+.video__subtitle
+  color: white
+  font-size: type.zero
+
+.cta
+  margin-top: 6rem
+  margin-bottom: 4rem
+  text-align: center
+  a 
+    font-family: Sporting, sans-serif
+    font-size: type.one
+    letter-spacing: 0.08em
+    color: white
+    text-transform: uppercase
+    text-decoration: none
+    border-bottom: 4px solid white
+    
