@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'gatsby-image'
-import styled from 'styled-components'
 
 import s from './header.module.styl'
 // console.log(styles)
