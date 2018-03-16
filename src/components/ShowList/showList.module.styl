@@ -1,0 +1,36 @@
+@import '../../utils/vars'
+
+.wrapper
+  margin: 8rem 4rem 2rem 4rem
+
+h1
+  font-family: Sporting, sans-serif
+  font-size: type.two
+  color: colors.blue
+  letter-spacing: 0.08em
+  line-height: 1.25
+  text-transform: uppercase
+  margin: 2rem 0
+  @media (min-width: 40em)
+    font-size: type.three
+
+.grid  
+  margin-top: 6rem
+  @media (min-width: 960px)
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-gap: 64px
+  @media (min-width: 1280px)
+    grid-template-columns: repeat(3, 1fr)
+
+.entry 
+  margin-bottom: 2rem
+
+h3
+  font-family: Sporting, sans-serif
+  font-size: type.one
+  margin-bottom: 0.5rem
+
+.description
+  margin-top: 1rem
+  font-size: 16px
