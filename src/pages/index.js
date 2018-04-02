@@ -1,16 +1,17 @@
-import React from 'react'
+import React from "react"
 
-import Nav from '../components/Nav'
-import Header from '../components/Header'
-import Bio from '../components/Bio'
-import Videos from '../components/Videos'
-import Upcoming from '../components/Upcoming'
+import Nav from "../components/Nav"
+import Header from "../components/Header"
+import Bio from "../components/Bio"
+import Videos from "../components/Videos"
+import Upcoming from "../components/Upcoming"
 
 const IndexPage = ({ data }) => {
   let home = data.allContentfulHomePage.edges[0].node
   let bioText = home.bio.childMarkdownRemark.html
   let videos = data.allContentfulVideo.edges.map(e => e.node)
-  let upcoming = data.allContentfulPerformance.edges.map(e => e.node)
+  // let upcoming = data.allContentfulPerformance.edges.map(e => e.node)
+  let featured = data.allContentfulFeaturedPerformance.edges[0].node
   return (
     <div>
       <Nav />
@@ -21,7 +22,7 @@ const IndexPage = ({ data }) => {
       />
       <Bio text={bioText} />
       <Videos videos={videos} />
-      <Upcoming next={upcoming[0]} />
+      <Upcoming next={featured} />
     </div>
   )
 }
@@ -60,17 +61,12 @@ export const query = graphql`
         }
       }
     }
-    allContentfulPerformance(sort: { fields: [dateTime] }) {
+    allContentfulFeaturedPerformance {
       edges {
         node {
-          title
+          name
           location
           dateTime
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
         }
       }
     }

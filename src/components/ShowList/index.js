@@ -7,14 +7,15 @@ const ShowList = props => {
   const { shows } = props
   return (
     <div className={s.wrapper}>
-      <h1>Past Performances</h1>
+      <h1>All Performances</h1>
       <div className={s.grid}>
         {shows.map((show, idx) => {
           const {
             title,
             location,
             dateTime,
-            description: { childMarkdownRemark: { html } }
+            description: { childMarkdownRemark: { html } },
+            link
           } = show
           const date = format(dateTime, "dddd MMMM Do, YYYY")
           return (
@@ -26,6 +27,7 @@ const ShowList = props => {
                 className={s.description}
                 dangerouslySetInnerHTML={{ __html: html }}
               />
+              <a href={link}>Learn More</a>
             </div>
           )
         })}
