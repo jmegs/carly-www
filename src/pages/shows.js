@@ -23,7 +23,9 @@ export default ({ props, data }) => {
 
 export const query = graphql`
   query ShowsQuery {
-    showEdges: allContentfulPerformance(sort: { fields: [dateTime] }) {
+    showEdges: allContentfulPerformance(
+      sort: { fields: [dateTime], order: DESC }
+    ) {
       edges {
         node {
           title

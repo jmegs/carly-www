@@ -1,5 +1,5 @@
 import React from "react"
-import format from "date-fns/format"
+import { format, isAfter } from "date-fns"
 import s from "./showList.module.styl"
 
 // Template
@@ -17,12 +17,14 @@ const ShowList = props => {
             description: { childMarkdownRemark: { html } },
             link
           } = show
-          const date = format(dateTime, "dddd MMMM Do, YYYY")
+          const formattedDate = format(dateTime, "dddd MMMM Do, YYYY")
+          let now = Date.now()
           return (
             <div className={s.entry}>
+              {isAfter(dateTime, now) && <h4>Coming Up</h4>}
               <h3>{title}</h3>
               <p>{location}</p>
-              <p>{date}</p>
+              <p>{formattedDate}</p>
               <p
                 className={s.description}
                 dangerouslySetInnerHTML={{ __html: html }}
