@@ -10,11 +10,11 @@ const IndexPage = ({ data }) => {
   let home = data.allContentfulHomePage.edges[0].node
   let bioText = home.bio.childMarkdownRemark.html
   let videos = data.allContentfulVideo.edges.map(e => e.node)
-  // let upcoming = data.allContentfulPerformance.edges.map(e => e.node)
   let featured = data.allContentfulFeaturedPerformance.edges[0].node
+  let { contactMe, email } = home
   return (
     <div>
-      <Nav />
+      <Nav message={contactMe} email={email} />
       <Header
         name={home.name}
         tagline={home.tagline}

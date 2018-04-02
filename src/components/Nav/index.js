@@ -1,17 +1,20 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from "react"
+import Link from "gatsby-link"
 
-import s from './nav.module.styl'
+import s from "./nav.module.styl"
 
-const Nav = () => {
+const Nav = props => {
+  let { message, email } = props
   return (
     <nav className={s.container}>
       <div className={s.logo}>
-        <Link to={'/'}>CA</Link>
+        <Link to={"/"}>CA</Link>
         <span className={s.bar} />
       </div>
       <div>
-        <span className={s.contact}>Contact</span>
+        <a href={`mailto:${email}`} className={s.contact}>
+          {message}
+        </a>
       </div>
     </nav>
   )
