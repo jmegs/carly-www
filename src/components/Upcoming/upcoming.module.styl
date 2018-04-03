@@ -3,6 +3,16 @@
 .container
   padding: 4rem 2rem
 
+.content
+  @media(min-width: 60em)
+    display: flex
+    align-items: center
+    max-height: 800px;
+
+.imageWrap
+  width: 100%
+  margin:0 5% 5% 0
+
 .title
   font-family: Sporting, sans-serif
   font-size: type.two
@@ -18,8 +28,12 @@
   font-size: type.two
   color: colors.grey
   line-height: 1.25
-  @media(min-width: 40em)
+  @media(min-width: 60em)
       font-size: type.three
+
+.showDesc
+  margin-top: 2rem
+  line-height: 1.5
 
 .cta
   margin-top: 4rem

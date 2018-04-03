@@ -10,7 +10,7 @@ const IndexPage = ({ data }) => {
   let home = data.allContentfulHomePage.edges[0].node
   let bioText = home.bio.childMarkdownRemark.html
   let videos = data.allContentfulVideo.edges.map(e => e.node)
-  let featured = data.allContentfulFeaturedPerformance.edges[0].node
+  let featured = data.allContentfulFeaturedPerformance.edges[0].node.featured
   let { contactMe, email } = home
   return (
     <div>
@@ -64,9 +64,21 @@ export const query = graphql`
     allContentfulFeaturedPerformance {
       edges {
         node {
-          name
-          location
-          dateTime
+          featured {
+            title
+            location
+            dateTime
+            image {
+              sizes(maxWidth: 720) {
+                ...GatsbyContentfulSizes_noBase64
+              }
+            }
+            description {
+              childMarkdownRemark {
+                html
+              }
+            }
+          }
         }
       }
     }
