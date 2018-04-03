@@ -30,8 +30,18 @@
   display: inline-block
   height: 2px
   width: 48px
-  background: colors.blue
+  background: colors.text
 
 .contact
   text-decoration: none
-  color: colors.black
+  color: colors.text
+
+.links
+  display: flex
+  > :not(:last-child)
+    margin-right: 0.5rem
+
+.icon
+  width: 16px
+  height: 16px
+  margin: 0 0 0 8px

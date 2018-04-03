@@ -13,9 +13,10 @@ const mockData = {
 export default ({ props, data }) => {
   console.log(data.showEdges)
   const shows = data.showEdges.edges.map(e => e.node)
+  let { contactMe, email, resume } = data.allContentfulHomePage.edges[0].node
   return (
     <div>
-      <Nav />
+      <Nav message={contactMe} email={email} resume={resume} />
       <ShowList shows={shows} />
     </div>
   )
@@ -23,6 +24,19 @@ export default ({ props, data }) => {
 
 export const query = graphql`
   query ShowsQuery {
+    allContentfulHomePage {
+      edges {
+        node {
+          contactMe
+          email
+          resume {
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
     showEdges: allContentfulPerformance(
       sort: { fields: [dateTime], order: DESC }
     ) {
@@ -31,6 +45,11 @@ export const query = graphql`
           title
           location
           dateTime
+          image {
+            sizes(maxWidth: 720) {
+              src
+            }
+          }
           description {
             childMarkdownRemark {
               html

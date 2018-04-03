@@ -11,10 +11,10 @@ const IndexPage = ({ data }) => {
   let bioText = home.bio.childMarkdownRemark.html
   let videos = data.allContentfulVideo.edges.map(e => e.node)
   let featured = data.allContentfulFeaturedPerformance.edges[0].node.featured
-  let { contactMe, email } = home
+  let { contactMe, email, resume } = home
   return (
     <div>
-      <Nav message={contactMe} email={email} />
+      <Nav message={contactMe} email={email} resume={resume} />
       <Header
         name={home.name}
         tagline={home.tagline}
@@ -48,6 +48,11 @@ export const query = graphql`
           }
           contactMe
           email
+          resume {
+            file {
+              url
+            }
+          }
         }
       }
     }
@@ -70,7 +75,7 @@ export const query = graphql`
             dateTime
             image {
               sizes(maxWidth: 720) {
-                ...GatsbyContentfulSizes_noBase64
+                src
               }
             }
             description {
