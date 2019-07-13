@@ -1,8 +1,14 @@
-import React from "react"
-import Image from "gatsby-image"
-import { format, isAfter } from "date-fns"
-import s from "./showList.module.styl"
+import React from 'react'
+import Image from 'gatsby-image'
+import { format, isAfter } from 'date-fns'
+import s from './showList.module.styl'
 
+const renderImage = (image, alt) => {
+  if (!image) {
+    return <div>No Image</div>
+  }
+  return <img src={image.sizes.src} alt={alt} />
+}
 // Template
 const ShowList = props => {
   const { shows } = props
@@ -19,11 +25,11 @@ const ShowList = props => {
             description: { childMarkdownRemark: { html } },
             link
           } = show
-          const formattedDate = format(dateTime, "dddd MMMM Do, YYYY")
+          const formattedDate = format(dateTime, 'dddd MMMM Do, YYYY')
           let now = Date.now()
           return (
             <div className={s.entry}>
-              {image && <img src={image.sizes.src} alt={`${title}`} />}
+              <div className={s.imageWrap}>{renderImage(image, title)}</div>
               <div className={s.text}>
                 {isAfter(dateTime, now) && <h4>Coming Up</h4>}
                 <h3>{title}</h3>
