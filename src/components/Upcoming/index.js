@@ -6,7 +6,6 @@ import Show from '../Show'
 
 const Upcoming = props => {
   let show = props.next
-  console.log(show)
 
   return (
     <div className={s.container}>
