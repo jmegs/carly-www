@@ -2,7 +2,6 @@ import React from 'react'
 import Image from 'gatsby-image'
 
 import s from './header.module.styl'
-// console.log(styles)
 
 // Template
 const Header = props => {

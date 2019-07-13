@@ -1,10 +1,10 @@
-import React from "react"
+import React from 'react'
 
-import Nav from "../components/Nav"
-import Header from "../components/Header"
-import Bio from "../components/Bio"
-import Videos from "../components/Videos"
-import Upcoming from "../components/Upcoming"
+import Nav from '../components/Nav'
+import Header from '../components/Header'
+import Bio from '../components/Bio'
+import Videos from '../components/Videos'
+import Upcoming from '../components/Upcoming'
 
 const IndexPage = ({ data }) => {
   let home = data.allContentfulHomePage.edges[0].node
@@ -70,6 +70,7 @@ export const query = graphql`
             title
             location
             dateTime
+            link
             image {
               sizes(maxWidth: 720) {
                 src
