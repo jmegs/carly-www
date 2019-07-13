@@ -32,7 +32,11 @@ const Show = ({ show }) => {
           className={s.description}
           dangerouslySetInnerHTML={{ __html: html }}
         />
-        {link && <a href={link}>Learn More</a>}
+        {link && (
+          <a className={s.link} href={link}>
+            Learn More
+          </a>
+        )}
       </div>
     </div>
   )
