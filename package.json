@@ -5,7 +5,7 @@
   "author": "John Meguerian <johnmeguerian@gmail.com>",
   "dependencies": {
     "date-fns": "^1.29.0",
-    "gatsby": "^1.9.158",
+    "gatsby": "^5.3.3",
     "gatsby-image": "^1.0.35",
     "gatsby-link": "^1.6.34",
     "gatsby-plugin-react-helmet": "^2.0.3",
